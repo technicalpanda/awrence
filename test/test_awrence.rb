@@ -1,7 +1,2 @@
 require 'helper'
-
-class TestAwrence < MiniTest::Unit::TestCase
-  def test_something_for_real
-    flunk "hey buddy, you should probably rename this file and start testing for real"
-  end
-end
+require File.dirname(__FILE__) + '/../lib/awrence/ext/hash/to_camel_keys'
