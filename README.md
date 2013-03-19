@@ -13,6 +13,11 @@ This gem recursively converts all snake_case keys in a hash structure to camelBa
 ```ruby
 my_hash = {"first_key" => 1, "foo_bars" => [{"baz_baz" => "value"}, {"blah_blah" => "value"}]}
 camel_hash = my_hash.to_camel_keys
+# => {"FirstKey" => 1, "FooBars" => [{"BazBaz" => "value"}, {"BlahBlah" => "value"}]}
+
+# OR
+
+camel_hash = my_hash.to_camelback_keys
 # => {"firstKey" => 1, "fooBars" => [{"bazBaz" => "value"}, {"blahBlah" => "value"}]}
 ```
 
