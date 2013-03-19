@@ -25,7 +25,6 @@ Awrence works on either string keys or symbolized keys. It has no dependencies, 
 
 ## Limitations
 
-* Your keys must be camelBack or CamelCase. The key "Foo Bar" will output as "foo bar".
 * Unlike the original T.E. Lawrence, the awrence gem is non-destructive to Hashes, Turks, or the nascent political aspirations of oppressed peoples. There is no Hash#to_camel_keys! form.
 
 # Going the other way
