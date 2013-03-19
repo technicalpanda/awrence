@@ -17,8 +17,14 @@ Jeweler::Tasks.new do |gem|
   gem.name = "awrence"
   gem.homepage = "http://github.com/futurechimp/awrence"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Camelize your snake keys when working with JSON APIs}
+  gem.description = %Q{Have you ever needed to automatically convert Ruby-style
+    snake_case to CamelCase or camelBack hash keys?
+
+    Awrence to the rescue.
+
+    This gem recursively converts all snake_case keys in a hash
+    structure to camelBack.  }
   gem.email = "dave.hrycyszyn@headlondon.com"
   gem.authors = ["Dave Hrycyszyn"]
   # dependencies defined in Gemfile
