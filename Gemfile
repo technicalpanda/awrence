@@ -8,7 +8,7 @@ source "https://rubygems.org"
 group :development do
   gem "minitest", ">= 0"
   gem "yard", "~> 0.7"
-  gem "rdoc", "~> 3.12"
+  gem 'rdoc', '~> 4.2'
   gem "bundler"
-  gem "jeweler", "~> 1.8.4"
+  gem 'jeweler', '~> 2.3'
 end
