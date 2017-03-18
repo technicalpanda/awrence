@@ -135,6 +135,49 @@ describe "A Hash" do
     end
   end
 
+  describe "a key that's an acronym" do
+    before do
+      Awrence.acronyms = { "id" => "ID" }
+    end
+
+    describe "to_camel_keys" do
+      it "camelizes the acronym" do
+        @camelized = {"id" => "1", "user_id" => "2" }.to_camel_keys
+
+        assert @camelized.keys.include?("ID")
+        assert @camelized.keys.include?("UserID")
+      end
+
+      it "matches on word boundaries" do
+        @camelized = { "idee" => "1" }.to_camelback_keys
+        assert_equal "idee", @camelized.keys.first
+
+        @camelized = { "some_idee" => "1" }.to_camelback_keys
+        assert_equal "someIdee", @camelized.keys.first
+      end
+    end
+
+    describe "to_camelback_keys" do
+      it "camelizes the acronym" do
+        @camelized = { "user_id" => "1" }.to_camelback_keys
+        assert_equal "userID", @camelized.keys.first
+      end
+
+      it "respects camelback boundaries" do
+        @camelized = { "id" => "1" }.to_camelback_keys
+        assert_equal "id", @camelized.keys.first
+      end
+
+      it "matches on word boundaries" do
+        @camelized = { "idee" => "1" }.to_camelback_keys
+        assert_equal "idee", @camelized.keys.first
+
+        @camelized = { "some_idee" => "1" }.to_camelback_keys
+        assert_equal "someIdee", @camelized.keys.first
+      end
+    end
+  end
+
   describe "strings with spaces in them" do
     before do
       @hash = { "With Spaces" => "FooBar"}

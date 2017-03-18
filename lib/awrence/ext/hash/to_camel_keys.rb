@@ -42,9 +42,13 @@ class Hash
 
   def camelize(snake_word, first_upper = true)
     if first_upper
-      snake_word.to_s.gsub(/\/(.?)/) { "::" + $1.upcase }.gsub(/(^|_)(.)/) { $2.upcase }
+      snake_word.to_s
+        .gsub(/(?:^|_)([^_\s]+)/) { Awrence.acronyms[$1] || $1.capitalize }
+        .gsub(%r|/([^/]*)|) { "::" + (Awrence.acronyms[$1] || $1.capitalize) }
     else
-      snake_word.chars.first + camelize(snake_word)[1..-1]
+      parts = snake_word.split("_", 2)
+      parts[0] << camelize(parts[1]) if parts.size > 1
+      parts[0] || ""
     end
   end
 

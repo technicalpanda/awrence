@@ -23,6 +23,20 @@ camel_hash = my_hash.to_camelback_keys
 
 Awrence works on either string keys or symbolized keys. It has no dependencies, as it has its own `camelize` method lifted out of ActiveSupport.
 
+### Acronyms
+
+```ruby
+Awrence.acronyms = { "url" => "URL", "id" => "ID" }
+my_hash = {"user_url" => "http://a.com", "user_id" => 2}
+camel_hash = my_hash.to_camel_keys
+# => {"UserURL"=>"http://a.com", "UserID"=>2}
+
+camel_hash = my_hash.to_camelback_keys
+# => {"userURL"=>"http://a.com", "userID"=>2}
+```
+
+The acronym will be ignored when it's the first word and `to_camelback_keys` is called.
+
 ## Limitations
 
 * Unlike the original [T.E. Lawrence](http://en.wikipedia.org/wiki/T._E._Lawrence), the awrence gem is non-destructive to Hashes, Turks, or the nascent political aspirations of oppressed peoples. There is no `Hash#to_camel_keys!` form.
@@ -46,4 +60,3 @@ the [Plissken](http://github.com/futurechimp/plissken) gem.
 
 Copyright (c) 2013 Dave Hrycyszyn. See LICENSE.txt for
 further details.
-
