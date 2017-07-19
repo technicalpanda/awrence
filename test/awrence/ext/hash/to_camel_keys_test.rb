@@ -136,7 +136,7 @@ describe "Hash" do
     end
   end
 
-  describe "a key that's an acronym" do
+  describe "a key that is an acronym" do
     before do
       Awrence.acronyms = { "id" => "ID" }
     end
@@ -150,11 +150,11 @@ describe "Hash" do
       end
 
       it "matches on word boundaries" do
-        @camelized = { "idee" => "1" }.to_camelback_keys
-        assert_equal "idee", @camelized.keys.first
+        @camelized = { "idee" => "1" }.to_camel_keys
+        assert_equal "Idee", @camelized.keys.first
 
-        @camelized = { "some_idee" => "1" }.to_camelback_keys
-        assert_equal "someIdee", @camelized.keys.first
+        @camelized = { "some_idee" => "1" }.to_camel_keys
+        assert_equal "SomeIdee", @camelized.keys.first
       end
     end
 
