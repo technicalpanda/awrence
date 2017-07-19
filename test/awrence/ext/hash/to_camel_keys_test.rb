@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../../test_awrence.rb')
 
-describe "A Hash" do
+describe "Hash" do
   describe "with snake keys" do
     describe "which are JSON-style strings" do
       describe "in the simplest case" do
@@ -22,11 +22,11 @@ describe "A Hash" do
           end
 
           it "leaves the value untouched" do
-            assert_equal(@camelized.values.first, "fooBar")
+            assert_equal("fooBar", @camelized.values.first)
           end
 
           it "leaves the original hash untouched" do
-            assert_equal(@hash.keys.first, "first_key")
+            assert_equal("first_key", @hash.keys.first)
           end
         end
 
@@ -44,11 +44,11 @@ describe "A Hash" do
           end
 
           it "leaves the value untouched" do
-            assert_equal(@camelized.values.first, "fooBar")
+            assert_equal("fooBar", @camelized.values.first)
           end
 
           it "leaves the original hash untouched" do
-            assert_equal(@hash.keys.first, "first_key")
+            assert_equal("first_key", @hash.keys.first)
           end
         end
       end
@@ -60,10 +60,11 @@ describe "A Hash" do
             "vegetable_types" => [
               {"potato_type" => "Golden delicious"},
               {"other_tuber_type" => "peanut"},
-                  {"peanut_names_and_spouses" => [
-                    {"bill_the_peanut" => "sally_peanut"}, {"sammy_the_peanut" => "jill_peanut"}
-                  ]}
+              {"peanut_names_and_spouses" => [
+                {"bill_the_peanut" => "sally_peanut"},
+                {"sammy_the_peanut" => "jill_peanut"}
               ]}
+            ]}
         end
 
         describe "non-destructive conversion to CamelCase" do
@@ -77,7 +78,7 @@ describe "A Hash" do
           end
 
           it "leaves the values on the top level alone" do
-            assert_equal(@camelized["AppleType"], "Granny Smith")
+            assert_equal("Granny Smith", @camelized["AppleType"])
           end
 
           it "converts second-level keys" do
@@ -110,7 +111,7 @@ describe "A Hash" do
           end
 
           it "leaves the values on the top level alone" do
-            assert_equal(@camelized["appleType"], "Granny Smith")
+            assert_equal("Granny Smith", @camelized["appleType"])
           end
 
           it "converts second-level keys" do
