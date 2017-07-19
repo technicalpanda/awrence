@@ -1,4 +1,4 @@
-class Hash
+class Array
 
   include Awrence::Methods
 

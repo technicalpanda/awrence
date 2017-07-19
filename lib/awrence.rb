@@ -1,7 +1,10 @@
-require File.dirname(__FILE__) + "/awrence/ext/hash/to_camel_keys"
+require "awrence/methods"
+require "awrence/ext/array/to_camel_keys"
+require "awrence/ext/hash/to_camel_keys"
 
 module Awrence
   class << self
+
     attr_writer :acronyms
 
     def acronyms

@@ -143,10 +143,11 @@ describe "Hash" do
 
     describe "to_camel_keys" do
       it "camelizes the acronym" do
-        @camelized = {"id" => "1", "user_id" => "2" }.to_camel_keys
+        @camelized = { "user_id" => "1" }.to_camel_keys
+        assert_equal "UserID", @camelized.keys.first
 
-        assert @camelized.keys.include?("ID")
-        assert @camelized.keys.include?("UserID")
+        @camelized = { "id" => "1" }.to_camel_keys
+        assert_equal "ID", @camelized.keys.first
       end
 
       it "matches on word boundaries" do

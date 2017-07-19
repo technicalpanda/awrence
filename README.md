@@ -39,17 +39,31 @@ Awrence works on either string keys or symbolized keys. It has no dependencies, 
 
 ### Acronyms
 
+You can set acronyms that Awrence will now check against when converting the keys.
+
 ```ruby
 Awrence.acronyms = { "url" => "URL", "id" => "ID" }
-my_hash = {"user_url" => "http://a.com", "user_id" => 2}
+
+my_hash = { "user_url" => "http://a.com", "user_id" => 2 }
 camel_hash = my_hash.to_camel_keys
-# => {"UserURL"=>"http://a.com", "UserID"=>2}
+# => { "UserURL" => "http://a.com", "UserID" => 2 }
 
 camel_hash = my_hash.to_camelback_keys
-# => {"userURL"=>"http://a.com", "userID"=>2}
+# => { "userURL" => "http://a.com", "userID" => 2 }
 ```
 
 The acronym will be ignored when it's the first word and `to_camelback_keys` is called.
+
+```ruby
+Awrence.acronyms = { "id" => "ID" }
+
+my_hash = { "id" => 2 }
+camel_hash = my_hash.to_camel_keys
+# => { "ID" => 2 }
+
+camel_hash = my_hash.to_camelback_keys
+# => { "id" => 2 }
+```
 
 ## Limitations
 
