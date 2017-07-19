@@ -1,12 +1,26 @@
-=======
-awrence
-========
+# Awrence
+
+[![Gem Version](https://badge.fury.io/rb/awrence.svg)](https://badge.fury.io/rb/awrence)
 
 Have you ever needed to automatically convert Rubyish `snake_case` to JSON-style `camelBack` or `CamelCase` hash keys?
 
 Awrence to the rescue.
 
 This gem recursively converts all snake_case keys in a hash structure to camelBack or CamelCase.
+
+## Installation
+
+Add this to your Gemfile:
+
+```ruby
+gem "awrence"
+```
+
+Or install it yourself as:
+
+```bash
+gem install awrence
+```
 
 ## Usage
 
@@ -44,6 +58,5 @@ the [Plissken](http://github.com/futurechimp/plissken) gem.
 
 == Copyright
 
-Copyright (c) 2013 Dave Hrycyszyn. See LICENSE.txt for
+Copyright (c) 2017 Dave Hrycyszyn. See LICENSE.txt for
 further details.
-
