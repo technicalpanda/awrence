@@ -67,7 +67,7 @@ camel_hash = my_hash.to_camelback_keys
 
 ## Limitations
 
-* Unlike the original [T.E. Lawrence](http://en.wikipedia.org/wiki/T._E._Lawrence), the awrence gem is non-destructive to Hashes, Turks, or the nascent political aspirations of oppressed peoples. There is no `Hash#to_camel_keys!` form.
+* There is no `Hash#to_camel_keys!` form.
 
 # Going the other way
 
