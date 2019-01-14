@@ -1,20 +1,25 @@
+# frozen_string_literal: true
+
 require "rubygems"
 require "bundler"
+
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
+  warn e.message
+  warn "Run `bundle install` to install missing gems"
   exit e.status_code
 end
+
 require "minitest/spec"
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
-require "awrence"
 
+require "awrence"
 require "minitest/reporters"
-Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(:color => true)]
+
+Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(color: true)]
 
 class MiniTest::Unit::TestCase
 end

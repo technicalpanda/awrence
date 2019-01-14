@@ -1,4 +1,6 @@
-require File.expand_path(File.dirname(__FILE__) + '/../../../test_awrence.rb')
+# frozen_string_literal: true
+
+require File.expand_path(File.dirname(__FILE__) + "/../../../test_helper.rb")
 
 describe "Array" do
   describe "with snake keys" do
@@ -58,13 +60,14 @@ describe "Array" do
           @array = [{
             "apple_type" => "Granny Smith",
             "vegetable_types" => [
-              {"potato_type" => "Golden delicious"},
-              {"other_tuber_type" => "peanut"},
-              {"peanut_names_and_spouses" => [
-                {"bill_the_peanut" => "sally_peanut"},
-                {"sammy_the_peanut" => "jill_peanut"}
-              ]}
-            ]}]
+              { "potato_type" => "Golden delicious" },
+              { "other_tuber_type" => "peanut" },
+              { "peanut_names_and_spouses" => [
+                { "bill_the_peanut" => "sally_peanut" },
+                { "sammy_the_peanut" => "jill_peanut" }
+              ] }
+            ]
+          }]
         end
 
         describe "non-destructive conversion to CamelCase" do
@@ -73,8 +76,8 @@ describe "Array" do
           end
 
           it "recursively camelizes the keys on the top level of the hash" do
-            assert @camelized[0].keys.include?("AppleType")
-            assert @camelized[0].keys.include?("VegetableTypes")
+            assert @camelized[0].key?("AppleType")
+            assert @camelized[0].key?("VegetableTypes")
           end
 
           it "leaves the values on the top level alone" do
@@ -82,21 +85,23 @@ describe "Array" do
           end
 
           it "converts second-level keys" do
-            assert @camelized[0]["VegetableTypes"].first.has_key? "PotatoType"
+            assert @camelized[0]["VegetableTypes"].first.key? "PotatoType"
           end
 
           it "leaves second-level values alone" do
-            assert @camelized[0]["VegetableTypes"].first.has_value? "Golden delicious"
+            assert @camelized[0]["VegetableTypes"].first.value? "Golden delicious"
           end
 
           it "converts third-level keys" do
-            assert @camelized[0]["VegetableTypes"].last["PeanutNamesAndSpouses"].first.has_key?("BillThePeanut")
-            assert @camelized[0]["VegetableTypes"].last["PeanutNamesAndSpouses"].last.has_key?("SammyThePeanut")
+            assert @camelized[0]["VegetableTypes"].last["PeanutNamesAndSpouses"].first.key?("BillThePeanut")
+            assert @camelized[0]["VegetableTypes"].last["PeanutNamesAndSpouses"].last.key?("SammyThePeanut")
           end
 
           it "leaves third-level values alone" do
-            assert_equal "sally_peanut", @camelized[0]["VegetableTypes"].last["PeanutNamesAndSpouses"].first["BillThePeanut"]
-            assert_equal "jill_peanut", @camelized[0]["VegetableTypes"].last["PeanutNamesAndSpouses"].last["SammyThePeanut"]
+            assert_equal "sally_peanut",
+                         @camelized[0]["VegetableTypes"].last["PeanutNamesAndSpouses"].first["BillThePeanut"]
+            assert_equal "jill_peanut",
+                         @camelized[0]["VegetableTypes"].last["PeanutNamesAndSpouses"].last["SammyThePeanut"]
           end
         end
 
@@ -106,8 +111,8 @@ describe "Array" do
           end
 
           it "recursively camelizes the keys on the top level of the hash" do
-            assert @camelized[0].keys.include?("appleType")
-            assert @camelized[0].keys.include?("vegetableTypes")
+            assert @camelized[0].key?("appleType")
+            assert @camelized[0].key?("vegetableTypes")
           end
 
           it "leaves the values on the top level alone" do
@@ -115,21 +120,23 @@ describe "Array" do
           end
 
           it "converts second-level keys" do
-            assert @camelized[0]["vegetableTypes"].first.has_key? "potatoType"
+            assert @camelized[0]["vegetableTypes"].first.key? "potatoType"
           end
 
           it "leaves second-level values alone" do
-            assert @camelized[0]["vegetableTypes"].first.has_value? "Golden delicious"
+            assert @camelized[0]["vegetableTypes"].first.value? "Golden delicious"
           end
 
           it "converts third-level keys" do
-            assert @camelized[0]["vegetableTypes"].last["peanutNamesAndSpouses"].first.has_key?("billThePeanut")
-            assert @camelized[0]["vegetableTypes"].last["peanutNamesAndSpouses"].last.has_key?("sammyThePeanut")
+            assert @camelized[0]["vegetableTypes"].last["peanutNamesAndSpouses"].first.key?("billThePeanut")
+            assert @camelized[0]["vegetableTypes"].last["peanutNamesAndSpouses"].last.key?("sammyThePeanut")
           end
 
           it "leaves third-level values alone" do
-            assert_equal "sally_peanut", @camelized[0]["vegetableTypes"].last["peanutNamesAndSpouses"].first["billThePeanut"]
-            assert_equal "jill_peanut", @camelized[0]["vegetableTypes"].last["peanutNamesAndSpouses"].last["sammyThePeanut"]
+            assert_equal "sally_peanut",
+                         @camelized[0]["vegetableTypes"].last["peanutNamesAndSpouses"].first["billThePeanut"]
+            assert_equal "jill_peanut",
+                         @camelized[0]["vegetableTypes"].last["peanutNamesAndSpouses"].last["sammyThePeanut"]
           end
         end
       end
@@ -182,7 +189,7 @@ describe "Array" do
 
   describe "strings with spaces in them" do
     before do
-      @array = [{ "With Spaces" => "FooBar"}]
+      @array = [{ "With Spaces" => "FooBar" }]
     end
 
     describe "to_camel_keys" do
