@@ -11,17 +11,11 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-require "minitest/spec"
-
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
 
 require "awrence"
+require "minitest/autorun"
 require "minitest/reporters"
 
 Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(color: true)]
-
-class MiniTest::Unit::TestCase
-end
-
-MiniTest::Unit.autorun
