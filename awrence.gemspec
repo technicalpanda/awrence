@@ -14,6 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage = "https://github.com/futurechimp/awrence"
   spec.license = "MIT"
   spec.name = "awrence"
+  spec.required_ruby_version = ">= 2.5"
   spec.summary = "Camelize your snake keys when working with JSON APIs"
   spec.version = Awrence::VERSION
 
