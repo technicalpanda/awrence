@@ -1,7 +1,7 @@
 # Awrence
 
 [![Gem Version](https://badge.fury.io/rb/awrence.svg)](https://badge.fury.io/rb/awrence)
-![CI Build](https://github.com/technicalpanda/awrence/workflows/.github/workflows/ci.yml/badge.svg)
+![CI](https://github.com/technicalpanda/awrence/workflows/CI/badge.svg)
 
 Have you ever needed to automatically convert Rubyish `snake_case` to JSON-style `camelBack` or `CamelCase` hash keys? 
 
