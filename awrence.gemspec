@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.description = "Have you ever needed to automatically convert Ruby-style snake_case to CamelCase or camelBack "\
                      "hash keys?\n\nAwrence to the rescue.\n\nThis gem recursively converts all snake_case keys in a "\
                      "hash structure to camelBack."
-  spec.email = ["dhrycyszyn@zonedigital.com", "stuart.chinery@gmail.com"]
+  spec.email = ["dave@constructiveproof.com", "code@technicalpanda.co.uk"]
   spec.files = Dir["lib/**/*", "MIT-LICENSE", "Rakefile", "README.md", "VERSION"]
-  spec.homepage = "https://github.com/futurechimp/awrence"
+  spec.homepage = "https://github.com/technicalpanda/awrence"
   spec.license = "MIT"
   spec.name = "awrence"
   spec.required_ruby_version = ">= 2.5"
