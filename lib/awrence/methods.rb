@@ -52,7 +52,7 @@ module Awrence
       when Array
         value.map { |v| send(method, v) }
       when Hash
-        Hash[value.map { |k, v| [camelize_key(k, first_upper: first_upper), send(method, v)] }]
+        value.map { |k, v| [camelize_key(k, first_upper: first_upper), send(method, v)] }.to_h
       else
         value
       end
