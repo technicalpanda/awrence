@@ -13,8 +13,9 @@ Gem::Specification.new do |spec|
   spec.files = Dir["lib/**/*", "MIT-LICENSE", "Rakefile", "README.md", "VERSION"]
   spec.homepage = "https://github.com/technicalpanda/awrence"
   spec.license = "MIT"
+  spec.metadata["rubygems_mfa_required"] = "true"
   spec.name = "awrence"
-  spec.required_ruby_version = ">= 2.5"
+  spec.required_ruby_version = ">= 2.7"
   spec.summary = "Camelize your snake keys when working with JSON APIs"
   spec.version = Awrence::VERSION
 
