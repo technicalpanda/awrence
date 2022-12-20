@@ -32,7 +32,7 @@ GEM
     rake (13.0.6)
     regexp_parser (2.6.1)
     rexml (3.2.5)
-    rubocop (1.40.0)
+    rubocop (1.41.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.2.1)
@@ -63,7 +63,7 @@ DEPENDENCIES
   minitest-macos-notification (~> 1.0)
   minitest-reporters (~> 1.4)
   rake (~> 13.0)
-  rubocop (~> 1.40)
+  rubocop (~> 1.41)
   rubocop-minitest (~> 0.22)
   rubocop-rake (~> 0.5)
 
