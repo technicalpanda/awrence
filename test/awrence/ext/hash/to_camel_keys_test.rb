@@ -151,17 +151,21 @@ describe "Hash" do
     describe "to_camel_keys" do
       it "camelizes the acronym" do
         @camelized = { "user_id" => "1" }.to_camel_keys
+
         assert_equal "UserID", @camelized.keys.first
 
         @camelized = { "id" => "1" }.to_camel_keys
+
         assert_equal "ID", @camelized.keys.first
       end
 
       it "matches on word boundaries" do
         @camelized = { "idee" => "1" }.to_camel_keys
+
         assert_equal "Idee", @camelized.keys.first
 
         @camelized = { "some_idee" => "1" }.to_camel_keys
+
         assert_equal "SomeIdee", @camelized.keys.first
       end
     end
@@ -169,19 +173,23 @@ describe "Hash" do
     describe "to_camelback_keys" do
       it "camelizes the acronym" do
         @camelized = { "user_id" => "1" }.to_camelback_keys
+
         assert_equal "userID", @camelized.keys.first
       end
 
       it "respects camelback boundaries" do
         @camelized = { "id" => "1" }.to_camelback_keys
+
         assert_equal "id", @camelized.keys.first
       end
 
       it "matches on word boundaries" do
         @camelized = { "idee" => "1" }.to_camelback_keys
+
         assert_equal "idee", @camelized.keys.first
 
         @camelized = { "some_idee" => "1" }.to_camelback_keys
+
         assert_equal "someIdee", @camelized.keys.first
       end
     end
@@ -195,6 +203,7 @@ describe "Hash" do
     describe "to_camel_keys" do
       it "doesn't get camelized" do
         @camelized = @hash.to_camel_keys
+
         assert_equal "With Spaces", @camelized.keys.first
       end
     end
@@ -202,6 +211,7 @@ describe "Hash" do
     describe "to_camelback_keys" do
       it "doesn't get camelized" do
         @camelized = @hash.to_camelback_keys
+
         assert_equal "With Spaces", @camelized.keys.first
       end
     end
