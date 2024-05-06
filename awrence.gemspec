@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.license = "MIT"
   spec.metadata["rubygems_mfa_required"] = "true"
   spec.name = "awrence"
-  spec.required_ruby_version = ">= 2.7"
+  spec.required_ruby_version = ">= 3.0"
   spec.summary = "Camelize your snake keys when working with JSON APIs"
   spec.version = Awrence::VERSION
 end
