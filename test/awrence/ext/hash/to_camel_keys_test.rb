@@ -20,7 +20,7 @@ describe "Hash" do
           end
 
           it "leaves the key as a string" do
-            assert @camelized.keys.first.is_a? String
+            assert_kind_of String, @camelized.keys.first
           end
 
           it "leaves the value untouched" do
@@ -42,7 +42,7 @@ describe "Hash" do
           end
 
           it "leaves the key as a string" do
-            assert @camelized.keys.first.is_a? String
+            assert_kind_of String, @camelized.keys.first
           end
 
           it "leaves the value untouched" do

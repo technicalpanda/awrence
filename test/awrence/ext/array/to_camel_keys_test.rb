@@ -20,7 +20,7 @@ describe "Array" do
           end
 
           it "leaves the key as a string" do
-            assert @camelized[0].keys.first.is_a? String
+            assert_kind_of String, @camelized[0].keys.first
           end
 
           it "leaves the value untouched" do
@@ -42,7 +42,7 @@ describe "Array" do
           end
 
           it "leaves the key as a string" do
-            assert @camelized[0].keys.first.is_a? String
+            assert_kind_of String, @camelized[0].keys.first
           end
 
           it "leaves the value untouched" do
