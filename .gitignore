@@ -50,3 +50,4 @@ pkg
 
 # Built gems
 *.gem
+.vscode/settings.json
