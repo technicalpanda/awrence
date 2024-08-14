@@ -6,7 +6,7 @@ gemspec
 
 group :development do
   gem "byebug", "~> 11.1"
-  gem "minitest", "~> 5.24"
+  gem "minitest", "~> 5.25"
   gem "minitest-fail-fast", "~> 0.1"
   gem "minitest-macos-notification", "~> 2.0"
   gem "minitest-reporters", "~> 1.7"
