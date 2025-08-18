@@ -3,7 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/awrence.svg)](https://badge.fury.io/rb/awrence)
 ![CI](https://github.com/technicalpanda/awrence/workflows/CI/badge.svg)
 
-Have you ever needed to automatically convert Rubyish `snake_case` to JSON-style `camelBack` or `CamelCase` hash keys? 
+Have you ever needed to automatically convert Rubyish `snake_case` to JSON-style `camelBack` or `CamelCase` hash keys?
 
 Awrence to the rescue!
 
@@ -79,7 +79,7 @@ camel_hash = my_hash.to_camelback_keys
 # Going the other way
 
 If you've already got `CamelCase` and need to `snake_case` it, you are encouraged to try
-the [Plissken](http://github.com/futurechimp/plissken) gem.
+the [Plissken](http://github.com/technicalpanda/plissken) gem.
 
 ## Contributing
 
