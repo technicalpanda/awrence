@@ -11,9 +11,7 @@ This gem recursively converts all snake_case keys in a hash structure to camelBa
 
 ## Requirements
 
-* Ruby >= 3.0
-
-For Ruby < 3.0 use version 2.0.1
+* Ruby >= 3.2
 
 ## Installation
 
