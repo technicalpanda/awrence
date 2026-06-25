@@ -32,6 +32,10 @@ jobs:
           PREV=$(git tag -l | sort -V | tail -2 | head -1)
           echo "Between $PREV and $LATEST:"
           git log "$PREV..$LATEST" --oneline | head -5
+          echo "=== Current HEAD ==="
+          git log --oneline -1
+          echo "=== Current branch ==="
+          git branch -v
 
       - name: Set git remote
         run: |
