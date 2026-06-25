@@ -4,7 +4,6 @@ on:
   push:
     tags:
       - "v*"
-  workflow_dispatch:
 
 jobs:
   changelog:
@@ -16,41 +15,26 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch full history and tags
-        run: |
-          git fetch --unshallow
-          git fetch origin 'refs/tags/*:refs/tags/*'
-
-      - name: Debug git state
-        run: |
-          echo "=== All tags ==="
-          git tag -l | sort -V
-          echo "=== Latest 2 tags ==="
-          git tag -l | sort -V | tail -2
-          echo "=== Commits between latest tags ==="
-          LATEST=$(git tag -l | sort -V | tail -1)
-          PREV=$(git tag -l | sort -V | tail -2 | head -1)
-          echo "Between $PREV and $LATEST:"
-          git log "$PREV..$LATEST" --oneline | head -5
-
-      - name: Set git remote
-        run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git remote set-url origin https://github.com/${{ github.repository }}.git
-
-      - name: Generate changelog with git-cliff
-        uses: orhun/git-cliff-action@4d0efd7c7a4b55484abf71c29a29712192adebdb
+      - name: Generate changelog
+        uses: ardalanamini/auto-changelog@506d604cdb8ec964c260a43c4e2f594ba30bfecc
+        id: changelog
         with:
-          config: cliff.toml
-          args: --verbose
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          commit-types: |
+            feat: Features
+            fix: Bug Fixes
+            docs: Documentation
+            perf: Performance
+            refactor: Refactoring
+            test: Testing
+            ci: CI/CD
+            chore: skip
+          default-commit-type: Other
 
-      - name: Upload artifacts
+      - name: Create Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b
         with:
-          body_path: CHANGELOG.md
-          draft: false
-          prerelease: false
+          body: ${{ steps.changelog.outputs.changelog }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
