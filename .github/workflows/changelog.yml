@@ -18,8 +18,8 @@ jobs:
 
       - name: Fetch full history and tags
         run: |
-          git fetch --unshallow
           git fetch origin 'refs/tags/*:refs/tags/*'
+          git fetch origin
 
       - name: Debug git state
         run: |
