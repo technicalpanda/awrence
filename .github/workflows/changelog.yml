@@ -43,7 +43,7 @@ jobs:
         uses: orhun/git-cliff-action@4d0efd7c7a4b55484abf71c29a29712192adebdb
         with:
           config: cliff.toml
-          args: --verbose
+          args: --latest --verbose
 
       - name: Upload artifacts
         if: startsWith(github.ref, 'refs/tags/')
