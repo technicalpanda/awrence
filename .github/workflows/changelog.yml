@@ -15,10 +15,23 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          ref: main
 
-      - name: Fetch all tags
-        run: git fetch --tags origin
+      - name: Fetch full history and tags
+        run: |
+          git fetch --unshallow
+          git fetch origin 'refs/tags/*:refs/tags/*'
+
+      - name: Debug git state
+        run: |
+          echo "=== All tags ==="
+          git tag -l | sort -V
+          echo "=== Latest 2 tags ==="
+          git tag -l | sort -V | tail -2
+          echo "=== Commits between latest tags ==="
+          LATEST=$(git tag -l | sort -V | tail -1)
+          PREV=$(git tag -l | sort -V | tail -2 | head -1)
+          echo "Between $PREV and $LATEST:"
+          git log "$PREV..$LATEST" --oneline | head -5
 
       - name: Set git remote
         run: |
